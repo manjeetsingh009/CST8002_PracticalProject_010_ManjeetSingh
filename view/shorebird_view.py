@@ -1,35 +1,37 @@
 """
 Course: CST8002 – Programming Language Research Project
 Professor: Stanley Pieda
-Due Date: 22-02-2026
+Due Date: 29-03-2026
 Author: Manjeet Singh
 Student Number: 041160093
 
 References:
-[1] Python Software Foundation, "print() function,"
-https://docs.python.org/3/library/functions.html#print
+[1] Python Software Foundation, "csv — CSV File Reading and Writing,"
+https://docs.python.org/3/library/csv.html
+[Accessed: Mar. 29, 2026].
 
-[2] Python Software Foundation, "input() function,"
-https://docs.python.org/3/library/functions.html#input
+[2] Python Software Foundation, "uuid — UUID Objects,"
+https://docs.python.org/3/library/uuid.html
+[Accessed: Mar. 29, 2026].
 
-[3] R. Oliveira, “GUID vs UUID vs ULID: Understanding Unique Identifiers,”
-Medium, Jul. 31, 2024. [Online]. Available:
-https://medium.com/@ronaldo.oliver7/guid-vs-uuid-vs-ulid-understanding-unique-identifiers-565c88cdca13
+[3] Python Software Foundation, "list.sort() method,"
+https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+[Accessed: Mar. 29, 2026].
+
+[4] GeeksforGeeks, "Python List sort() Method," 
+[Online]. Available: https://www.geeksforgeeks.org/python-list-sort-method/ 
+[Accessed: Mar. 29, 2026].
 """
 
-
 class ShorebirdView:
-    """View layer handling user interaction."""
 
     def display_header(self):
-        """Display program header."""
         print("\n==================================================")
         print("CST8002 – Programming Language Research Project")
         print("Program by Manjeet Singh (041160093)")
         print("==================================================")
 
     def display_menu(self):
-        """Display menu options."""
         print("\nPlease select an option:")
         print("1. Display Records")
         print("2. Add Record")
@@ -37,13 +39,21 @@ class ShorebirdView:
         print("4. Delete Record")
         print("5. Reload Dataset")
         print("6. Save Records (UUID)")
-        print("7. Exit")
+        print("7. Sort Records")
+        print("8. Display Multiple Records")
+        print("9. Exit")
 
     def get_input(self):
         return input("Choose option: ")
 
+    # ✅ KEEP THIS SAME (Option 1 → first 10 only)
     def display_records(self, records):
         for i, record in enumerate(records[:10]):
+            print(i, record)
+
+    # ✅ NEW FUNCTION (ONLY FOR OPTION 8)
+    def display_multiple_records(self, records, number):
+        for i, record in enumerate(records[:number]):
             print(i, record)
 
     def show_message(self, message):
