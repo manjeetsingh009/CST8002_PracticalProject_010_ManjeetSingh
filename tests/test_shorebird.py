@@ -1,20 +1,26 @@
 """
 Course: CST8002 – Programming Language Research Project
 Professor: Stanley Pieda
-Due Date: 22-02-2026
+Due Date: 29-03-2026
 Author: Manjeet Singh
 Student Number: 041160093
 
 References:
-[1] Python Software Foundation, "unittest — Unit testing framework,"
-https://docs.python.org/3/library/unittest.html
+[1] Python Software Foundation, "csv — CSV File Reading and Writing,"
+https://docs.python.org/3/library/csv.html
+[Accessed: Mar. 29, 2026].
 
-[2] Python Software Foundation, "assert Methods,"
-https://docs.python.org/3/library/unittest.html#assert-methods
+[2] Python Software Foundation, "uuid — UUID Objects,"
+https://docs.python.org/3/library/uuid.html
+[Accessed: Mar. 29, 2026].
 
-[3] R. Oliveira, “GUID vs UUID vs ULID: Understanding Unique Identifiers,”
-Medium, Jul. 31, 2024. [Online]. Available:
-https://medium.com/@ronaldo.oliver7/guid-vs-uuid-vs-ulid-understanding-unique-identifiers-565c88cdca13
+[3] Python Software Foundation, "list.sort() method,"
+https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
+[Accessed: Mar. 29, 2026].
+
+[4] GeeksforGeeks, "Python List sort() Method," 
+[Online]. Available: https://www.geeksforgeeks.org/python-list-sort-method/ 
+[Accessed: Mar. 29, 2026].
 """
 
 import unittest

@@ -1,7 +1,7 @@
 """
 Course: CST8002 – Programming Language Research Project
 Professor: Stanley Pieda
-Due Date: 22-02-2026
+Due Date: 12-04-2026
 Author: Manjeet Singh
 Student Number: 041160093
 Description: Main entry point for MVC application.
