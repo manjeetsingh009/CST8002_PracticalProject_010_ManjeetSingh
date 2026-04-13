@@ -1,7 +1,7 @@
 """
 Course: CST8002 – Programming Language Research Project
 Professor: Stanley Pieda
-Due Date: 29-03-2026
+Due Date: 12-04-2026
 Author: Manjeet Singh
 Student Number: 041160093
 
@@ -21,6 +21,9 @@ https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 [4] GeeksforGeeks, "Python List sort() Method," 
 [Online]. Available: https://www.geeksforgeeks.org/python-list-sort-method/ 
 [Accessed: Mar. 29, 2026].
+[5] Government of Canada, “Open Government Licence – Canada,”
+https://open.canada.ca/en/open-government-licence-canada (accessed Apr. 11, 2026).
+
 """
 
 class ShorebirdView:
@@ -39,20 +42,22 @@ class ShorebirdView:
         print("4. Delete Record")
         print("5. Reload Dataset")
         print("6. Save Records (UUID)")
-        print("7. Sort Records")
+        print("7. Sort Records (Single)")
         print("8. Display Multiple Records")
-        print("9. Exit")
+        print("9. Sort Records (Multi-Column)")
+        print("10. Exit")
 
     def get_input(self):
         return input("Choose option: ")
 
-    # ✅ KEEP THIS SAME (Option 1 → first 10 only)
+    # ✅ SAME (Option 1 → first 10 only)
     def display_records(self, records):
         for i, record in enumerate(records[:10]):
             print(i, record)
 
-    # ✅ NEW FUNCTION (ONLY FOR OPTION 8)
+    # ✅ UPDATED (small addition for Project 4 clarity)
     def display_multiple_records(self, records, number):
+        print("\nDisplaying records (after sorting if applied)...")  # 👈 ADDED LINE
         for i, record in enumerate(records[:number]):
             print(i, record)
 

@@ -1,7 +1,7 @@
 """
 Course: CST8002 – Programming Language Research Project
 Professor: Stanley Pieda
-Due Date: 29-03-2026
+Due Date: 12-04-2026
 Author: Manjeet Singh
 Student Number: 041160093
 
@@ -21,6 +21,10 @@ https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 [4] GeeksforGeeks, "Python List sort() Method," 
 [Online]. Available: https://www.geeksforgeeks.org/python-list-sort-method/ 
 [Accessed: Mar. 29, 2026].
+
+[5] Government of Canada, “Open Government Licence – Canada,”
+https://open.canada.ca/en/open-government-licence-canada (accessed Apr. 11, 2026).
+
 """
 
 import csv
@@ -39,7 +43,7 @@ class ShorebirdModel:
         with open(filepath, newline='', encoding='cp1252') as file:
             reader = csv.reader(file)
 
-            next(reader)  # ✅ skip only ONE header
+          
 
             for row in reader:   # ✅ load ALL records (no limit)
                 self.records.append(row)
@@ -58,12 +62,27 @@ class ShorebirdModel:
             writer.writerows(self.records)
         return filename
 
-    # ✅ SORTING FEATURE (unchanged)
+    # ✅ SORTING FEATURE (OLD)
     def sort_records(self, index, reverse=False):
         """Sort records based on column index."""
         try:
             self.records.sort(
                 key=lambda r: r[index].lower() if isinstance(r[index], str) else r[index],
+                reverse=reverse
+            )
+            return True
+        except Exception:
+            return False
+
+    # ✅ NEW FEATURE FOR PROJECT 4 (MULTI-COLUMN SORTING)
+    def sort_records_multi(self, indices, reverse=False):
+        """Sort records based on multiple column indices."""
+        try:
+            self.records.sort(
+                key=lambda r: tuple(
+                    r[i].lower() if isinstance(r[i], str) else r[i]
+                    for i in indices
+                ),
                 reverse=reverse
             )
             return True

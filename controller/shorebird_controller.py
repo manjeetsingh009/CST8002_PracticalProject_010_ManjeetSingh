@@ -1,10 +1,9 @@
 """
 Course: CST8002 – Programming Language Research Project
 Professor: Stanley Pieda
-Due Date: 29-03-2026
+Due Date: 12-04-2026
 Author: Manjeet Singh
 Student Number: 041160093
-
 References:
 [1] Python Software Foundation, "csv — CSV File Reading and Writing,"
 https://docs.python.org/3/library/csv.html
@@ -21,6 +20,9 @@ https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 [4] GeeksforGeeks, "Python List sort() Method," 
 [Online]. Available: https://www.geeksforgeeks.org/python-list-sort-method/ 
 [Accessed: Mar. 29, 2026].
+
+[5] Government of Canada, “Open Government Licence – Canada,”
+https://open.canada.ca/en/open-government-licence-canada (accessed Apr. 11, 2026).
 """
 
 from model.shorebird_model import ShorebirdModel
@@ -82,7 +84,7 @@ class ShorebirdController:
                 filename = self.model.save_data()
                 self.view.show_message(f"Saved to {filename}")
 
-            # ✅ SORTING FEATURE
+            # ✅ OPTION 7
             elif choice == "7":
                 try:
                     print("\nSort by:")
@@ -128,23 +130,73 @@ class ShorebirdController:
                 except Exception:
                     self.view.show_message("Error during sorting.")
 
-            # ✅ FIXED OPTION 8 (DISPLAY MULTIPLE RECORDS)
+            # OPTION 8
             elif choice == "8":
                 try:
                     number = int(input("Enter number of records to display: "))
 
-                    # 🔥 DEBUG (optional – remove later)
                     print("TOTAL RECORDS LOADED:", len(self.model.records))
 
                     if number <= 0:
                         self.view.show_message("Enter a positive number.")
                         continue
 
-                    # ✅ CORRECT FUNCTION CALL
                     self.view.display_multiple_records(self.model.records, number)
 
                 except ValueError:
                     self.view.show_message("Invalid number.")
 
-            elif choice == "9":
+            elif choice == "10":
                 break
+
+            # ✅ NEW OPTION 9 (MULTI-COLUMN SORTING)
+            elif choice == "9":
+                try:
+                    print("\nSort by multiple fields (comma separated):")
+                    print("1. Site Identification")
+                    print("2. Area")
+                    print("3. Visit Date")
+                    print("4. Start Time")
+                    print("5. Species Code")
+                    print("6. Count")
+
+                    fields_input = input("Enter choices (e.g., 1,2): ")
+
+                    field_map = {
+                        "1": 0,
+                        "2": 1,
+                        "3": 2,
+                        "4": 3,
+                        "5": 4,
+                        "6": 5
+                    }
+
+                    indices = []
+                    for f in fields_input.split(","):
+                        f = f.strip()
+                        if f in field_map:
+                            indices.append(field_map[f])
+                        else:
+                            self.view.show_message("Invalid field selection.")
+                            indices = []
+                            break
+
+                    if not indices:
+                        continue
+
+                    print("\nSort order:")
+                    print("1. Ascending")
+                    print("2. Descending")
+                    order = input("Choose order: ")
+
+                    reverse = True if order == "2" else False
+
+                    success = self.model.sort_records_multi(indices, reverse)
+
+                    if success:
+                        self.view.show_message("Records sorted successfully (multi-column).")
+                    else:
+                        self.view.show_message("Sorting failed.")
+
+                except Exception:
+                    self.view.show_message("Error during multi-column sorting.")
